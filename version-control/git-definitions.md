@@ -7,6 +7,8 @@
 * What is a commit? What makes a good commit message?
 * What is a merge conflict?
 
+---
+
 * Version control is a way of keeping track of backup versions of a project. It is useful so that you can keep track of who has done what and so that you can revert mistakes.
 * A branch is an object that contains alternate versions of a repository. You would use one to organize changes made.
 * A commit is a savepoint for a change. A good commit message accurately describes what has been changed.
