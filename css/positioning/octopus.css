@@ -1,0 +1,22 @@
+img {
+	display: block;
+	margin: 10% auto;
+}
+
+img#octo {
+	z-index: 1;
+}
+
+img#glass {
+	z-index: 2;
+	position: relative;
+	bottom: 328px;
+	left: 6px;
+}
+
+img#hat {
+	z-index: 3;
+	position :relative;
+	bottom: 736px;
+	left: 16px;
+}
