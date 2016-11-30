@@ -6,6 +6,10 @@ section#contact-info:hover {
 	color: blue;
 }
 
+section#personal-objective > p {
+	color: red;
+}
+
 .job {
 	background-color: #e9e5dc;
 	border-radius: 25px;
