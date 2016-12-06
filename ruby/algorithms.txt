@@ -1,3 +1,4 @@
+Personal robot using an elevator:
 - Until we are in front of button panel
   - Until obstructed by wall of elevator
     - Move forward in direction of facing angle
@@ -18,3 +19,23 @@
     - Until focus is on left-most column
       - Move focus left 1 column
 - Press button
+
+Acquire coffee
+- Approach coffee machine
+- Until machine is properly loaded
+  - Open top of machine
+  - Until coffee pot is filled
+    - Grab pot
+    - Turn on tap
+    - Place pot under flowing water
+  - Pour from pot into reservoir
+  - Until grounds are loaded
+    - Place filter in machine
+    - Grind beans
+    - Place grounds within filter
+  - Close machine
+- Press "brew"
+- Wait
+- Until enjoying a fresh cuppa
+  - Acquire cup
+  - Pour from pot into cup
