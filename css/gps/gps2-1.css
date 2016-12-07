@@ -1,13 +1,19 @@
+body {
+  border-spacing: 16px;
+}
+
 .column-1 {
   width: 33%;
-  display: inline-block;
+  display: table-cell;
   vertical-align: top;
   background: gold;
+  border-radius: 24px;
 }
 
 .column-2 {
   width: 33%;
-  display: inline-block;
+  display: table-cell;
   vertical-align: top;
   background: purple;
+  border-radius: 24px;
 }
