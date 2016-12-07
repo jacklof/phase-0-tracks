@@ -1,0 +1,13 @@
+.column-1 {
+  width: 33%;
+  display: inline-block;
+  vertical-align: top;
+  background: gold;
+}
+
+.column-2 {
+  width: 33%;
+  display: inline-block;
+  vertical-align: top;
+  background: purple;
+}
