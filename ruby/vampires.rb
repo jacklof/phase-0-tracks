@@ -1,12 +1,6 @@
-$name = nil
-$age = nil
-$year = nil
-$bread = nil
-$insur = nil
-
 def survey
   puts "What is your name?"
-  $name = gets.chomp.capitalize
+  $name = gets.chomp.downcase
 
   puts "How old are you?"
   $age = gets.chomp.to_i
@@ -47,25 +41,35 @@ def survey
   when "n"
     $insur = false
   end
+
+  puts "Please list any allergies you have (enter 'done' when finished):"
+  i = -1
+  while $allerg[i] != "done"
+    i += 1
+    $allerg[i] = gets.chomp.downcase
+  end
 end
 
-def processVampire(n, a, y, b, i)
+def processVampire(name, age, year, bread, insur, allerg)
   str = "Results inconclusive"
-  if 2016 - y == a
-    if b
-      str = "Probably not a vampire"
-    end
-  else
-    if !b || !i
-      if !b && !i
-        str = "Almost certainly a vampire"
-      else
-        str = "Probably a vampire"
+  if !allerg.include? "sunshine"
+    if name == "drake cula" || name == "tu fang"
+      str = "Definitely a vampire"
+    elsif 2016 - year == age
+      if bread
+        str = "Probably not a vampire"
+      end
+    else
+      if !bread || !insur
+        if !bread && !insur
+          str = "Almost certainly a vampire"
+        else
+          str = "Probably a vampire"
+        end
       end
     end
-  end
-  if n == "Drake Cula" || n == "Tu Fang"
-    str = "Definitely a vampire"
+  else
+    str = "Probably a vampire"
   end
   return str
 end
@@ -79,9 +83,18 @@ end
 
 i = 0
 while i < no
+  $name = nil
+  $age = nil
+  $year = nil
+  $bread = nil
+  $insur = nil
+  $allerg = []
+
   puts "\n"
   survey
-  puts "\nEmployee: " + $name
-  puts "Results => " + processVampire($name, $age, $year, $bread, $insur)
+  puts "\nEmployee: " + $name.capitalize
+  puts "Results => " + processVampire($name, $age, $year, $bread, $insur, $allerg)
   i += 1
 end
+
+puts "\nActually, never mind! What do these questions have to do with anything? Let's all be friends."
