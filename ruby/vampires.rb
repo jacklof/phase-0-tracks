@@ -49,7 +49,7 @@ when "n"
   bread = false
 end
 
-puts "Would you like to enroll in the company's health insurance?"
+puts "Would you like to enroll in the company's health insurance? (Y/N)"
 insur = gets.chomp.downcase
 while !(insur == "y" || insur == "n")
   puts "Please enter Y or N"
@@ -62,4 +62,5 @@ when "n"
   insur = false
 end
 
-puts processVampire(name, age, year, bread, insur)
+puts "\nEmployee: " + name
+puts "Results => " + processVampire(name, age, year, bread, insur)
