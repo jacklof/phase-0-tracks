@@ -3,7 +3,7 @@ name = gets.chomp.capitalize
 
 puts "How old are you?"
 age = gets.chomp.to_i
-while age <= -1
+while age <= 0
   puts "You must enter a positive integer"
   age = gets.chomp.to_i
 end
@@ -21,6 +21,12 @@ while !(bread == "y" || bread == "n")
   puts "Please enter Y or N"
   bread = gets.chomp.downcase
 end
+case bread
+when "y"
+  bread = true
+when "n"
+  bread = false
+end
 
 puts "Would you like to enroll in the company's health insurance?"
 insur = gets.chomp.downcase
@@ -28,3 +34,14 @@ while !(insur == "y" || insur == "n")
   puts "Please enter Y or N"
   insur = gets.chomp.downcase
 end
+case insur
+when "y"
+  insur = true
+when "n"
+  insur = false
+end
+
+puts bread
+puts insur
+
+# if (2016 - year == age && bread)
