@@ -1,7 +1,7 @@
 def processVampire(n, a, y, b, i)
   str = "Results inconclusive"
   if 2016 - y == a
-    if bread
+    if b
       str = "Probably not a vampire"
     end
   else
