@@ -1,3 +1,24 @@
+def processVampire(n, a, y, b, i)
+  str = "Results inconclusive"
+  if 2016 - y == a
+    if bread
+      str = "Probably not a vampire"
+    end
+  else
+    if !b || !i
+      if !b && !i
+        str = "Almost certainly a vampire"
+      else
+        str = "Probably a vampire"
+      end
+    end
+  end
+  if n == "Drake Cula" || n == "Tu Fang"
+    str = "Definitely a vampire"
+  end
+  return str
+end
+
 puts "What is your name?"
 name = gets.chomp.capitalize
 
@@ -41,7 +62,4 @@ when "n"
   insur = false
 end
 
-puts bread
-puts insur
-
-# if (2016 - year == age && bread)
+puts processVampire(name, age, year, bread, insur)
