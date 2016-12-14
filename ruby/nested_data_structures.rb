@@ -31,7 +31,7 @@ playerData = [
   },
   {
     username: "Victor",
-    email: "victor@yetanotherwebsite",
+    email: "victor@yetanotherwebsite.com",
     password: "KAoau133j",
     backpack: {
       inventory: [
@@ -44,9 +44,9 @@ playerData = [
   }
 ]
 
-puts "Player inventories:\n"
+puts "Player inventories:"
 playerData.each do |player|
   print "#{player[:username]} has #{player[:backpack][:money]} gold"
   player[:backpack][:inventory].each { |item| print ", #{item}"}
-  puts "\n"
+  print "\n"
 end
