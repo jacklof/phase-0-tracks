@@ -21,5 +21,16 @@ def makeAlias(str)
   arr.join(' ')
 end
 
-puts makeAlias("Felicia Torres")
-puts makeAlias("Jack Loftus")
+enteredNames = {}
+prompt = true
+while prompt
+  puts "Please enter a name you'd like to parse, or 'quit' if you'd like to stop."
+  input = gets.chomp
+  prompt = input == "" ? false : input == "quit" ? false : true
+  if prompt
+    enteredNames[input.to_sym] = makeAlias(input)
+  end
+end
+
+print "\n"
+enteredNames.each { |k, v| puts "#{k} is now known as #{v}." }
