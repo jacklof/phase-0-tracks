@@ -36,13 +36,6 @@ colors.map do |color|
 end
 p colors
 
-# .map
-p colors
-color_cats = colors.map do |color|
-    "#{color} cat"
-end
-p color_cats
-
 p profile
 new_name = profile.map do |key, value|
  key.to_s + " is " + value.to_s
