@@ -1,3 +1,8 @@
+# GPS 2.2
+# John Loftus
+# Sara Gerou
+# Time: 1h52m
+
 # Method to create a list
 # input: string of items separated by spaces (example: "carrots apples cereal pizza")
 # steps:
@@ -94,3 +99,31 @@ grocRemove(groceryList, "lemonade")
 grocUpdate(groceryList, "ice cream", 1)
 
 grocPrint(groceryList)
+
+#
+# Reflection
+#
+# What did you learn about pseudocode from working on this challenge?
+#
+# I learned that a thorough and detailed pseudocode is great in that it allows you to iron out what is going to be done ahead of time; I found it helpful to refer to it when I forgot what exactly I was trying to do in the code.
+#
+# What are the tradeoffs of using arrays and hashes for this challenge?
+#
+# The benefit of using a hash was that there was associative data, and its an easy way to implement that. With arrays, we would have had to have had multiple to keep track of items, and then their values.
+#
+# What does a method return?
+#
+# A method returns whatever you want it to. In this case it returned the modified hash, due to the explicit returns we had.
+#
+# What kind of things can you pass into methods as arguments?
+#
+# Any object can be passed into a method as an argument.
+#
+# How can you pass information between methods?
+#
+# You can pass information between methods by calling other methods within methods, or by having a variable to keep track of the alterations and passing that repeatedly.
+#
+# What concepts were solidified in this challenge, and what concepts are still confusing?
+#
+# Pretty much everything we have learned so far was further solidified, including explicit/implicit returns; however, I feel as if I could use some more practice to further iron that out.
+#
