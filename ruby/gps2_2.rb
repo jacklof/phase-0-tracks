@@ -18,7 +18,7 @@
 # steps:
   # check if item exists within list
     # if so, remove
-    # otherwise, return nil
+    # otherwise, ignore
 # output: new_hash (potentially updated)
 
 # Method to update the quantity of an item
@@ -27,8 +27,7 @@
   # check if item exists within list
     # if it does
       # update item with new_quantity overwriting the old
-    # otherwise
-      # return nil
+    # otherwise add()
 # output: new_hash
 
 # Method to print a list and make it look pretty
@@ -38,3 +37,48 @@
     # print a contextual sentence containing the item with its value for each item
       # "We need to get <qty> of <item>."
 # output: print to console a human-readable list containing keys and values of hash_list
+
+def initGroceryList(str)
+  hash = {}
+  arr = str.split(' ')
+  arr.each { |item| hash[item.to_sym] = 1 }
+
+  grocPrint(hash)
+
+  return hash
+end
+
+def grocAdd(hashList, strItem, qty)
+  if hashList.include? strItem.to_sym
+    grocUpdate(hashList, strItem, qty)
+  else
+    hashList[strItem.to_sym] = qty
+  end
+
+  return hashList
+end
+
+def grocRemove(hashList, strItem)
+  if hashList.include? strItem.to_sym
+    hashList.delete(strItem.to_sym)
+  end
+
+  return hashList
+end
+
+def grocUpdate(hashList, strItem, qty)
+  if hashList.include? strItem.to_sym
+    hashList[strItem.to_sym] = qty
+  else
+    grocAdd(hashList, strItem, qty)
+  end
+end
+
+def grocPrint(hashList)
+  hashList.each { |k, v| puts "We need to get #{v} of #{k}." }
+end
+
+#
+# Driver code
+#
+groceryList = initGroceryList("carrots apples cereal pizza")
