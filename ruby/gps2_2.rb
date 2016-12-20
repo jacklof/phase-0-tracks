@@ -72,9 +72,12 @@ def grocUpdate(hashList, strItem, qty)
   else
     grocAdd(hashList, strItem, qty)
   end
+
+  return hashList
 end
 
 def grocPrint(hashList)
+  puts "\n-=: Grocery List :=-"
   hashList.each { |k, v| puts "We need to get #{v} of #{k}." }
 end
 
@@ -82,3 +85,12 @@ end
 # Driver code
 #
 groceryList = initGroceryList("carrots apples cereal pizza")
+
+grocAdd(groceryList, "lemonade", 2)
+grocAdd(groceryList, "tomatoes", 3)
+grocAdd(groceryList, "onions", 1)
+grocAdd(groceryList, "ice cream", 4)
+grocRemove(groceryList, "lemonade")
+grocUpdate(groceryList, "ice cream", 1)
+
+grocPrint(groceryList)
