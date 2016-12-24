@@ -6,6 +6,19 @@ class TodoList
   def get_items
     @list
   end
+
+  def add_item(str)
+    @list << str
+  end
+
+  def delete_item(str)
+    @list.delete(str)
+  end
+
+  def get_item(i)
+    @list[i]
+  end
+
 end
 
 describe TodoList do
