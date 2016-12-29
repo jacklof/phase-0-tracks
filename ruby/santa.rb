@@ -24,7 +24,7 @@ class Santa
     @reindeer_ranking << reindeer
   end
 
-  def set_gender(gender)
+  def gender=(gender)
     @gender = gender
   end
 
@@ -53,6 +53,6 @@ end
 
 p santas[0].get_mad_at("Vixen")
 p santas[3].celebrate_birthday
-p santas[2].set_gender("male")
+p santas[2].gender = "male"
 p santas[3].age
 p santas[1].ethnicity
