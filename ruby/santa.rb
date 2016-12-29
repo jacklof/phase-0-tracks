@@ -3,11 +3,11 @@ class Santa
   attr_accessor :gender
 
   def initialize(gender, ethnicity)
-    puts "Initializing Santa instance with [gender: #{gender}, ethnicity: #{ethnicity}]"
+    puts "Initializing Santa instance..."
     @gender = gender
     @ethnicity = ethnicity
     @reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
-    @age = 0
+    @age = (Random.new).rand(140)
   end
 
   def speak
@@ -28,22 +28,9 @@ class Santa
   end
 end
 
-# s = Santa.new
-# p s
-# s.speak
-# s.eat_milk_and_cookies("chocolate chip")
-
-santas = []
 genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
 ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
-i = genders.length - 1
-until i <= 0 do
-  santas << Santa.new(genders[i], ethnicities[i])
-  i -= 1
+1000.times do
+  santa = Santa.new(genders.sample, ethnicities.sample)
+  puts "Gender: #{santa.gender} | " + "Ethnicity: #{santa.ethnicity} | " + "Age: #{santa.age}"
 end
-
-p santas[0].get_mad_at("Vixen")
-p santas[3].celebrate_birthday
-p santas[2].gender = "male"
-p santas[3].age
-p santas[1].ethnicity
