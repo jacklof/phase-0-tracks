@@ -14,15 +14,23 @@ class Hangman
   end
 
   def calc_guesses
-    @word.length * 3
+    @word.length * 2
   end
 
   def check_guess(guess)
-    
+    if @word.include? guess
+      @word.split('').each_index do |i|
+        if @word[i] == guess
+          @word_state[i] = guess
+        end
+      end
+      return true
+    end
+    return false
   end
 
   def check_win
-
+    @word_state == @word
   end
 end
 
@@ -39,11 +47,8 @@ loop do
       game.state = 1
     when 2
       puts "Okay, the secret word has been set."
-      puts "Player Two, you have #{game.guesses_left} guesses to get all of the correct letters of the secret word: #{game.word_state}."
+      puts "Player Two, you have #{game.guesses_left} guesses to get all of the correct letters of the secret word."
       game.state = 3
-    when 3
-      puts "Word: #{game.word_state} | Guesses: #{game.guesses_left}"
-      puts "Guess another letter!"
     when 4
       puts "You need to enter a single letter as a guess..."
       game.state = 3
@@ -54,10 +59,13 @@ loop do
       puts "Correct guess!"
       game.state = 3
     when 7
-      puts "That is an incorrect guess."
+      puts "Sorry, that was not a correct guess."
       game.state = 3
     end
 
+    if game.state >= 3
+      puts "Word: #{game.word_state} | Guesses: #{game.guesses_left}"
+    end
     input = gets.chomp.downcase
     break if input == 'restart' || input == 'exit'
 
@@ -70,13 +78,13 @@ loop do
         if game.guessed_letters.include? input
           game.state = 5
         else
-          game.guesses_left -= 1
-          game.guessed_letters << input
           if game.check_guess(input)
             game.state = 6
           else
             game.state = 7
           end
+          game.guesses_left -= 1
+          game.guessed_letters << input
           if game.check_win
             game.state = 8
           elsif game.guesses_left <= 0
@@ -93,12 +101,14 @@ loop do
 
   case game.state
   when 8
-    puts "Sorry, but you've run out of guesses... You lose!"
+    puts "Nice job, you guessed all of the letters of the secret word '#{game.word}'!"
   when 9
-    puts "Nice job! You guessed all of the letters!"
+    puts "Sorry, but you've run out of guesses... You lose!"
   else
     puts "Restarting Hangman..."
   end
+
+  break if game.state >= 8
 end
 
-puts "Game over! Thanks for playing."
+puts "Game over. Thanks for playing!"
