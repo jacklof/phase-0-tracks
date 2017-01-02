@@ -18,17 +18,20 @@ class Hangman
   end
 
   def check_guess(guess)
+    
+  end
+
+  def check_win
 
   end
 end
 
-input = nil
 loop do
   puts "Welcome to Hangman! Type 'exit' at any time to quit, or 'restart' to start over."
-
   game = Hangman.new
+  input = nil
   loop do
-    break if game.state >= 6
+    break if game.state >= 8
 
     case game.state
     when 0
@@ -47,6 +50,12 @@ loop do
     when 5
       puts "You've already guessed that! Don't worry, it won't count against you - guess again!"
       game.state = 3
+    when 6
+      puts "Correct guess!"
+      game.state = 3
+    when 7
+      puts "That is an incorrect guess."
+      game.state = 3
     end
 
     input = gets.chomp.downcase
@@ -63,7 +72,16 @@ loop do
         else
           game.guesses_left -= 1
           game.guessed_letters << input
-          
+          if game.check_guess(input)
+            game.state = 6
+          else
+            game.state = 7
+          end
+          if game.check_win
+            game.state = 8
+          elsif game.guesses_left <= 0
+            game.state = 9
+          end
         end
       else
         game.state = 4
@@ -74,10 +92,10 @@ loop do
   break if input == 'exit'
 
   case game.state
-  when 6
-    puts "Sorry, but you've run out of guesses... You lost!"
-  when 7
-    puts ""
+  when 8
+    puts "Sorry, but you've run out of guesses... You lose!"
+  when 9
+    puts "Nice job! You guessed all of the letters!"
   else
     puts "Restarting Hangman..."
   end
