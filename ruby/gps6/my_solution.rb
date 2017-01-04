@@ -9,6 +9,8 @@
 require_relative 'state_data'
 
 class VirusPredictor
+  attr_reader :state, :population, :population_density
+
 
   # Will populate each instance with the values grabbed from STATE_DATA
   def initialize(state_of_origin, population_density, population)
@@ -28,17 +30,31 @@ class VirusPredictor
   # Returns a number as a function of each instance's population densities and populations, interpolating it as a printable sentence
   def predicted_deaths
     # predicted deaths is solely based on population density
-    if @population_density >= 200
-      number_of_deaths = (@population * 0.4).floor
-    elsif @population_density >= 150
-      number_of_deaths = (@population * 0.3).floor
-    elsif @population_density >= 100
-      number_of_deaths = (@population * 0.2).floor
-    elsif @population_density >= 50
-      number_of_deaths = (@population * 0.1).floor
+
+    # if @population_density >= 200
+    #   number_of_deaths = (@population * 0.4).floor
+    # elsif @population_density >= 150
+    #   number_of_deaths = (@population * 0.3).floor
+    # elsif @population_density >= 100
+    #   number_of_deaths = (@population * 0.2).floor
+    # elsif @population_density >= 50
+    #   number_of_deaths = (@population * 0.1).floor
+    # else
+    #   number_of_deaths = (@population * 0.05).floor
+    # end
+    case
+    when population_density >= 200
+      pop = 0.4
+    when population_density >= 150
+      pop = 0.3
+    when population_density >= 100
+      pop = 0.2
+    when population_density >= 50
+      pop = 0.1
     else
-      number_of_deaths = (@population * 0.05).floor
+      pop = 0.05
     end
+    number_of_deaths = (population * pop).floor
 
     print "#{@state} will lose #{number_of_deaths} people in this outbreak"
 
