@@ -1,7 +1,7 @@
 # Virus Predictor
 
 # I worked on this challenge [by myself, with: Brendan Schwarz].
-# We spent [#] hours on this challenge.
+# We spent [1] hours on this challenge.
 
 # EXPLANATION OF require_relative
 # Will load a file from a relative path, starting from wherever the current file is
@@ -109,3 +109,24 @@ end
 
 #=======================================================================
 # Reflection Section
+# What are the differences between the two different hash syntaxes shown in the state_data file?
+
+    # The differences between the two different hash syntaxes are that one uses String keys with a hash rocket and the other uses Symbols as keys
+    # This provides an easier visualization of what the hash represents
+
+# What does require_relative do? How is it different from require?
+
+    # require_relative loads a necessary file from the provided relative path (relative to the file calling it)
+    # It is different from require in that require_relative is used for other project files and require would be for libraries and such
+
+# What are some ways to iterate through a hash?
+
+    # You can use Hash#map, Hash#each or even call Fixnum#times on Hash#size if you wanted to
+
+# When refactoring virus_effects, what stood out to you about the variables, if anything?
+
+    # What eventually stood out was the fact that they where passed to other methods that already referenced them directly
+
+# What concept did you most solidify in this challenge?
+
+    # Refactoring methods to be more dry
