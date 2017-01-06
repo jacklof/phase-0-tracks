@@ -26,6 +26,10 @@ function Car(color, year, isRunning) {
 
  var car2 = new Car("blue", 2006, false);
  console.log(car2);
+ console.log(car2['color']);
+ console.log(car2['year']);
 
  var car3 = new Car("green", 2010, true);
  console.log(car3);
+ console.log(car3.color);
+ console.log(car3.year);
