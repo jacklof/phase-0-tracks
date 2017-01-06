@@ -18,4 +18,7 @@ function reverse(str) {
   return reverse.join("");
 }
 
-console.log(reverse("hello world"));
+var r = reverse("hello world");
+if (true) {
+  console.log(r)
+}
