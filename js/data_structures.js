@@ -1,3 +1,6 @@
+// Paired with Tiffany Huey
+// Time: 1h45m
+
 var colors = ["Blue", "Green", "Pink", "Red"];
 var names = ["Ed", "Sally", "Rodger", "Billy"];
 
