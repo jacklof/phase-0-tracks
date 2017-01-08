@@ -69,12 +69,14 @@ function getRandom(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+// Driver code tests for longest word in an array
 console.log(getLongestString(["long phrase", "longest phrase", "longer phrase"]));
 console.log(getLongestString(["alpha", "beta", "gamma"]));
 console.log(getLongestString(["one potato", "two potato", "three potato", "four"]));
 
 console.log("\n---\n")
 
+// Driver code tests for key-value matching between two objects
 console.log(checkForMatch({name: "Steven", age: 54}, {name: "Tamir", age: 54}));
 console.log(checkForMatch({name: "Greg", age: 34}, {name: "Jackson", age: 22}));
 console.log(checkForMatch({keyOne: "alpha", keyTwo: "beta"}, {keyAlpha: "one", keyBeta: "two"}));
@@ -82,6 +84,7 @@ console.log(checkForMatch({name: "George", age: 25}, {name: "George", age: 64}))
 
 console.log("\n---");
 
+// Driver code tests for 10x generation of random word arrays and longest word in them
 for (var i = 0; i < 10; i++) {
   array = randomWords(5);
   console.log("\nWords: " + array);
