@@ -28,8 +28,21 @@ Define a function that takes two objects and checks to see if they share at leas
     - If there has been no match, return false
   Output: boolean
 */
-
+function checkForMatch(object1, object2) {
+  for (var key in object1) {
+    if (key in object2 && object1[key] == object2[key]) {
+      return true;
+    }
+  }
+  return false;
+}
 
 console.log(getLongestString(["long phrase", "longest phrase", "longer phrase"]));
 console.log(getLongestString(["alpha", "beta", "gamma"]));
 console.log(getLongestString(["one potato", "two potato", "three potato", "four"]));
+
+console.log("\n---\n")
+
+console.log(checkForMatch({name: "Steven", age: 54}, {name: "Tamir", age: 54}));
+console.log(checkForMatch({name: "Greg", age: 34}, {name: "Jackson", age: 22}));
+console.log(checkForMatch({keyOne: "alpha", keyTwo: "beta"}, {keyAlpha: "one", keyBeta: "two"}));
