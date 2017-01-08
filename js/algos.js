@@ -37,6 +37,21 @@ function checkForMatch(object1, object2) {
   return false;
 }
 
+/*
+Define a function that generates an array of randomized letters (words) given a particular array size
+  Input: an integer
+  Steps:
+    - Define an alphabet to refer to
+    - Define an empty array that will be returned
+    - Iterate through a loop as many times as the inputted integer is for
+      - Generate a random number (1-10)
+      - Define an empty word str
+      - Iterate through another loop as many times as the generated number is for
+        - Choose a random letter from the alphabet, and use this to add on to the word str
+      - Add the word str to the return array
+  Output: An array of specified length, full of randomized words
+*/
+
 console.log(getLongestString(["long phrase", "longest phrase", "longer phrase"]));
 console.log(getLongestString(["alpha", "beta", "gamma"]));
 console.log(getLongestString(["one potato", "two potato", "three potato", "four"]));
