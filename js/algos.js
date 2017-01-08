@@ -18,6 +18,18 @@ function getLongestString(array) {
   return rstr;
 }
 
+/*
+Define a function that takes two objects and checks to see if they share at least one key-value pair
+  Input: an object, another object
+  Steps:
+    - Iterate through one objects keys
+      - If the particular key is also a key in the second object, compare the values of those keys from their respective object
+        - If the values are the same, return true
+    - If there has been no match, return false
+  Output: boolean
+*/
+
+
 console.log(getLongestString(["long phrase", "longest phrase", "longer phrase"]));
 console.log(getLongestString(["alpha", "beta", "gamma"]));
 console.log(getLongestString(["one potato", "two potato", "three potato", "four"]));
