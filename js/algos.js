@@ -46,3 +46,4 @@ console.log("\n---\n")
 console.log(checkForMatch({name: "Steven", age: 54}, {name: "Tamir", age: 54}));
 console.log(checkForMatch({name: "Greg", age: 34}, {name: "Jackson", age: 22}));
 console.log(checkForMatch({keyOne: "alpha", keyTwo: "beta"}, {keyAlpha: "one", keyBeta: "two"}));
+console.log(checkForMatch({name: "George", age: 25}, {name: "George", age: 64}));
