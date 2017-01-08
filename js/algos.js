@@ -8,3 +8,16 @@ Define a function that finds the longest string in an array of strings
       - Otherwise, move on to the next index
   Output: the longest string of the given array
 */
+function getLongestString(array) {
+  var rstr = array[0];
+  for (var i = 1; i < array.length; i++) {
+    if (array[i].length > rstr.length) {
+      rstr = array[i];
+    }
+  }
+  return rstr;
+}
+
+console.log(getLongestString(["long phrase", "longest phrase", "longer phrase"]));
+console.log(getLongestString(["alpha", "beta", "gamma"]));
+console.log(getLongestString(["one potato", "two potato", "three potato", "four"]));
