@@ -1,0 +1,7 @@
+Joining three tables:
+
+SELECT * FROM businesses, users, reviews WHERE businesses.id = reviews.business_id & users.id = reviews.user_id;
+
+Filter out duplicate/irrelevant data
+
+SELECT businesses.name, users.first_name, users.last_name, reviews.stars, reviews.comment FROM reviews JOIN businesses ON reviews.business_ID = businesses.id JOIN users ON reviews.user_ID = users.id;
