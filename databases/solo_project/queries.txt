@@ -46,3 +46,24 @@ Dodge|Viper|blue|false
 2|Honda|Civic|2|true
 3|Nissan|Frontier|4|true
 5|Dodge|Viper|3|false
+
++--------------------------------+
+| -=: Different JOIN queries :=- |
++--------------------------------+
+There are a few different basic types of JOINs. They are INNER, LEFT, RIGHT, and FULL. There are more, but these are the basic ones. I was looking and I can't quite figure out how to make the correct queries for my own tables. Here are some attempts...
+
+> SELECT make, model, color_id, is_working FROM cars INNER JOIN colors ON cars.color_id = colors.id;
+
+Honda|Pilot|7|true
+Honda|Civic|2|true
+Nissan|Frontier|4|true
+Dodge|Viper|3|false
+
+> SELECT make, model, color_id, is_working FROM cars LEFT JOIN colors ON cars.color_id = colors.id;
+
+Honda|Pilot|7|true
+Honda|Civic|2|true
+Nissan|Frontier|4|true
+Dodge|Viper|3|false
+
+I don't know, these all produce the same results so I am obviously doing something wrong. Hopefully this will become more evident as I ask others.
