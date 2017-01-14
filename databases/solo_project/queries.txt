@@ -1,0 +1,48 @@
+1. Display the information in one table (either table is fine).
+
+> SELECT * FROM cars;
+
+1|Honda|Pilot|7|true
+2|Honda|Civic|2|false
+3|Nissan|Frontier|4|true
+4|Porsche|Boxster|8|true
+5|Dodge|Viper|3|false
+
+2. Update an item that meets some condition (you can choose a condition that makes sense).
+
+> UPDATE cars SET is_working="true" WHERE id=2;
+
+1|Honda|Pilot|7|true
+2|Honda|Civic|2|true
+3|Nissan|Frontier|4|true
+4|Porsche|Boxster|8|true
+5|Dodge|Viper|3|false
+
+3. Display the information in both tables using one query.
+
+> SELECT * FROM cars, colors WHERE cars.color_id = colors.id;
+
+1|Honda|Pilot|7|true|7|black
+2|Honda|Civic|2|true|2|green
+3|Nissan|Frontier|4|true|4|yellow
+4|Porsche|Boxster|8|true|8|purple
+5|Dodge|Viper|3|false|3|blue
+
+4. Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
+
+> SELECT cars.make, cars.model, colors.name, cars.is_working FROM cars JOIN colors ON cars.color_id = colors.id;
+
+Honda|Pilot|black|true
+Honda|Civic|green|true
+Nissan|Frontier|yellow|true
+Porsche|Boxster|purple|true
+Dodge|Viper|blue|false
+
+5. Delete an item that meets some condition (you can choose a condition that makes sense).
+
+> DELETE FROM cars WHERE id=4;
+
+1|Honda|Pilot|7|true
+2|Honda|Civic|2|true
+3|Nissan|Frontier|4|true
+5|Dodge|Viper|3|false
