@@ -38,7 +38,7 @@ class UserInterface
       if args.length < 3
         puts "Incorrect amount of arguments for 'add'. Usage: 'add [miles] [time]'."
       else
-        @run_data.execute("INSERT INTO runs (day, miles, speed) VALUES (date('now'), ?, time(?))", [args[1].to_f, args[2]])
+        run = @run_data.execute("INSERT INTO runs (day, miles, speed) VALUES (date('now'), ?, time(?))", [args[1].to_f, args[2]])
         puts "Added the run. Use 'list' to see changes."
       end
     when 'remove'
@@ -52,7 +52,8 @@ class UserInterface
       if args.length < 2
         puts "Incorrect amount of arguemnts for 'show'. Usage: 'show [run]'"
       else
-        puts @run_data.execute("SELECT * FROM runs WHERE id=?", [args[1].to_i])
+        run = @run_data.execute("SELECT * FROM runs WHERE id=?", [args[1].to_i])
+        puts "Run \##{run['id']} was for #{run['miles']}mi and lasted #{run['speed']} on #{run['day']}."
       end
     else
       puts "Unidentified command. Please make sure you typed correctly!"
