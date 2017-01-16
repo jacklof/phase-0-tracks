@@ -31,6 +31,18 @@ class UserInterface
       runs.each do |run|
         puts "Run \##{run['id']} was for #{run['miles']}mi and lasted #{run['speed']} on #{run['day']}."
       end
+    when 'add'
+      if args.length < 3
+        puts "Incorrect amount of arguments for 'add'. Usage: 'add [miles] [time]'."
+      else
+        @run_data.execute("INSERT INTO runs (day, miles, speed) VALUES (CURDATE(), ?, ?)", [args[1].to_f, args[2]])
+    when 'remove'
+      if args.length < 2
+        puts "You must specify a run's number."
+      else
+        @run_data.execute("REMOVE FROM runs WHERE id=?", [args[1]])
+    else
+      puts "Unidentified command. Please make sure you typed correctly!"
     end
   end
 end
