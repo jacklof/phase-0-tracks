@@ -22,10 +22,12 @@ class UserInterface
   def execute(args)
     case args[0]
     when 'help'
+      puts " -=: COMMANDS :=- "
       puts "help.................view this list"
       puts "list.................show all stored runs with IDs"
       puts "add [miles] [time]...add a new run, with time formatted as HH:MI:SS"
       puts "remove [run].........remove a run with the specified number"
+      puts " -=: -------- :=- "
     when 'list'
       runs = @run_data.execute("SELECT * FROM runs")
       runs.each do |run|
@@ -36,12 +38,14 @@ class UserInterface
         puts "Incorrect amount of arguments for 'add'. Usage: 'add [miles] [time]'."
       else
         @run_data.execute("INSERT INTO runs (day, miles, speed) VALUES (date('now'), ?, time(?))", [args[1].to_f, args[2]])
+        puts "Attempted to add a new run. Use 'list' to see changes."
       end
     when 'remove'
       if args.length < 2
         puts "You must specify a run's number."
       else
-        @run_data.execute("DELETE FROM runs WHERE id=?", [args[1]])
+        @run_data.execute("DELETE FROM runs WHERE id=?", [args[1].to_i])
+        puts "Attempted to remove a run. Use 'list' to see changes."
       end
     else
       puts "Unidentified command. Please make sure you typed correctly!"
