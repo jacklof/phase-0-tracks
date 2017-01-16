@@ -27,6 +27,7 @@ class UserInterface
       puts "list.................show all stored runs"
       puts "add [miles] [time]...add a new run, as miles (ex. 2.4) and time (HH:MI:SS)"
       puts "remove [run].........remove a run with the specified number"
+      puts "show [run]...........display a run with the specified number"
       puts " -=: -------- :=- "
     when 'list'
       runs = @run_data.execute("SELECT * FROM runs")
@@ -42,11 +43,16 @@ class UserInterface
       end
     when 'remove'
       if args.length < 2
-        puts "You must specify a run's number."
+        puts "Incorrect amount of arguemnts for 'remove'. Usage: 'remove [run]'"
       else
         @run_data.execute("DELETE FROM runs WHERE id=?", [args[1].to_i])
         puts "Removed the run. Use 'list' to see changes."
       end
+    when 'show'
+      if args.length < 2
+        puts "Incorrect amount of arguemnts for 'show'. Usage: 'show [run]'"
+      else
+        puts @run_data.execute("SELECT * FROM runs WHERE id=?", [args[1].to_i])
     else
       puts "Unidentified command. Please make sure you typed correctly!"
     end
