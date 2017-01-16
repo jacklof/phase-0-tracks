@@ -41,7 +41,7 @@ class UserInterface
       if args.length < 2
         puts "You must specify a run's number."
       else
-        @run_data.execute("REMOVE FROM runs WHERE id=?", [args[1]])
+        @run_data.execute("DELETE FROM runs WHERE id=?", [args[1]])
       end
     else
       puts "Unidentified command. Please make sure you typed correctly!"
