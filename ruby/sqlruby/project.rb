@@ -22,12 +22,12 @@ class UserInterface
   def execute(args)
     case args[0]
     when 'help'
-      puts " -=: COMMANDS :=- "
+      puts "--------=:[COMMANDS]:=--------"
       puts "help.................view this list"
       puts "list.................show all stored runs"
       puts "add [miles] [time]...add a new run, as miles (ex. 2.4) and time (HH:MI:SS)"
       puts "remove [run].........remove a run with the specified number"
-      puts " -=: -------- :=- "
+      puts "------------------------------"
     when 'list'
       runs = @run_data.execute("SELECT * FROM runs")
       runs.each do |run|
