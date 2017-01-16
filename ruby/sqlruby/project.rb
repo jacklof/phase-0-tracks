@@ -36,11 +36,13 @@ class UserInterface
         puts "Incorrect amount of arguments for 'add'. Usage: 'add [miles] [time]'."
       else
         @run_data.execute("INSERT INTO runs (day, miles, speed) VALUES (CURDATE(), ?, ?)", [args[1].to_f, args[2]])
+      end
     when 'remove'
       if args.length < 2
         puts "You must specify a run's number."
       else
         @run_data.execute("REMOVE FROM runs WHERE id=?", [args[1]])
+      end
     else
       puts "Unidentified command. Please make sure you typed correctly!"
     end
