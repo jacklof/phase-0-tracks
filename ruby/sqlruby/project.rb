@@ -1,3 +1,28 @@
+=begin
+
+  I tried my best to come up with something better, but
+  writers' block got to me. I spent hours attempting things
+  that were more grandiose, but simply could not seem
+  to get fully started, or realized that they were a little
+  much for what my own abilities are. For example I wanted to do
+  a text adventure game (a la Zork) but realized the magnitude
+  of what was involved. My idea was along the lines of having
+  a database for items, with names and descriptions, maybe a
+  script id that linked to another table that had code executions
+  in it. Then a table for rooms, with contents. And finally a
+  table with entity locations, like the player and maybe
+  other moving entities. Then I was going to create a
+  parser, etc. Even as I type this I get that same feeling of
+  being overwhelmed. Anyway, I also thought about doing a sort of
+  cellular automata/turing machine, that you could progress
+  n steps and save the state of. And then print the current
+  iteration. Overall, I have to say I struggled with this, as I
+  was unable to get the creative process going really strong.
+  In the end, I figured SOMETHING was better than nothing, and
+  pumped out this simple personal log interface.
+
+=end
+
 require 'sqlite3'
 
 class UserInterface
