@@ -35,7 +35,7 @@ class UserInterface
       if args.length < 3
         puts "Incorrect amount of arguments for 'add'. Usage: 'add [miles] [time]'."
       else
-        @run_data.execute("INSERT INTO runs (day, miles, speed) VALUES (CURDATE(), ?, ?)", [args[1].to_f, args[2]])
+        @run_data.execute("INSERT INTO runs (day, miles, speed) VALUES (date('now'), ?, time(?))", [args[1].to_f, args[2]])
       end
     when 'remove'
       if args.length < 2
