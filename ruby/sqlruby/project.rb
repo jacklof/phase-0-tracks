@@ -53,6 +53,7 @@ class UserInterface
         puts "Incorrect amount of arguemnts for 'show'. Usage: 'show [run]'"
       else
         puts @run_data.execute("SELECT * FROM runs WHERE id=?", [args[1].to_i])
+      end
     else
       puts "Unidentified command. Please make sure you typed correctly!"
     end
