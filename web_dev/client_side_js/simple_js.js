@@ -1,7 +1,6 @@
 console.log("script loaded");
 
 function addBorder(event) {
-  console.log(event);
 
   if (event.type == "mouseover") {
     event.target.style.border = "1px solid red";
@@ -10,8 +9,7 @@ function addBorder(event) {
   }
 }
 
-function addText(event) {
-  console.log(event);
+function addText() {
 
   var paragraph = document.createElement("p");
 
@@ -22,11 +20,12 @@ function addText(event) {
   div.appendChild(paragraph);
 }
 
-function changeClass(event) {
-  console.log(event);
+function changeClass() {
 
   var elements = document.getElementsByClassName("sample-class");
-  console.log(elements);
+  for (var i = 0; i < elements.length; i++) {
+    elements[i].style.border = "2px solid red";
+  }
 }
 
 var pic = document.getElementById("glider-image");
