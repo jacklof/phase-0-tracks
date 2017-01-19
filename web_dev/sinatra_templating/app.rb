@@ -4,6 +4,8 @@ require 'sqlite3'
 
 set :public_folder, File.dirname(__FILE__) + '/static'
 
+#static is also commonly named public
+
 db = SQLite3::Database.new("students.db")
 db.results_as_hash = true
 
@@ -16,6 +18,16 @@ end
 get '/students/new' do
   erb :new_student
 end
+
+post '/students/search' do
+	@search = db.execute("SELECT * FROM students WHERE campus=?", [params['campus']]) 
+	erb :printlookup
+end
+
+get '/students/searchfor' do
+	erb :lookup
+end
+
 
 # create new students via
 # a form
