@@ -1,3 +1,7 @@
+*Effective strategies?*
+
+Some effective strategies to studying is to find code examples, as well as looking at StackOverflow questions. Not trying to learn everything at once, and bookmarking links helps as well. It's easy to get overwhelmed at the sheer volume of resources out there, but I picked a few I thought would be particularly useful. Overall, I've learned what the basic idea of it is, and have gathered enough information to be able to implement it on a basic level. I believe practice over time will make this easier.
+
 *Look up what jQuery is exactly*
 
 jQuery simplifies HTML document traversing, event handling, animating, and Ajax interactions for rapid web development.
