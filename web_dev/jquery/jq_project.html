@@ -7,15 +7,17 @@
     <script>
       $(document).ready(function() {
         $("#hide").click(function() {
-          $("p").hide();
+          $("#test-id").hide();
         });
         $("#show").click(function() {
-          $("p").show();
+          $("#test-id").show();
         });
       });
     </script>
   </head>
   <body>
     <p id="test-id">Hello World!</p>
+    <button id="hide">Hide</button>
+    <button id="show">Show</button>
   </body>
 </html>
