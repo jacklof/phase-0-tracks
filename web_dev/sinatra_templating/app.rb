@@ -20,7 +20,17 @@ get '/students/new' do
 end
 
 post '/students/search' do
-	@search = db.execute("SELECT * FROM students WHERE campus=?", [params['campus']]) 
+	@search = db.execute("SELECT * FROM students")
+  @search_name = []
+  @search_age = []
+  @search_campus = []
+
+  @search.each do |student|
+    if student['name'].start_with?(params['name'])
+      @search_name << student
+    end
+  end
+
 	erb :printlookup
 end
 
