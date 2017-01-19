@@ -1,8 +1,8 @@
 $(document).ready(function() {
   $("#hide").click(function() {
-    $("#test-id").hide();
+    $("#test-id").fadeOut();
   });
   $("#show").click(function() {
-    $("#test-id").show();
+    $("#test-id").fadeIn();
   });
 });
