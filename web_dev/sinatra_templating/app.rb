@@ -29,47 +29,46 @@ post '/students/search' do
   	@search = db.execute("SELECT * FROM students")
     @results = []
 
-    # RUBY DATA MANIPULATION
-    # @search.each do |student|
-    #   match_name = (student['name'].downcase.start_with?(name.downcase))
-    #   match_age = (age.to_i == student['age'])
-    #   match_campus = (campus.downcase == student['campus'].downcase)
-    #
-    #   if name.empty?
-    #     if age.empty?
-    #       if !campus.empty?
-    #         # name: EMPTY, age: EMPTY, campus: FILLED
-    #         @results << student if match_campus
-    #       end
-    #     else
-    #       if campus.empty?
-    #         # name: EMPTY, age: FILLED, campus: EMPTY
-    #         @results << student if match_age
-    #       else
-    #         # name: EMPTY, age: FILLED, campus: FILLED
-    #         @results << student if match_age && match_campus
-    #       end
-    #     end
-    #   else
-    #     if age.empty?
-    #       if campus.empty?
-    #         # name: FILLED, age: EMPTY, campus: EMPTY
-    #         @results << student if match_name
-    #       else
-    #         # name: FILLED, age: EMPTY, campus: FILLED
-    #         @results << student if match_name && match_campus
-    #       end
-    #     else
-    #       if campus.empty?
-    #         # name: FILLED, age: FILLED, campus: EMPTY
-    #         @results << student if match_name && match_age
-    #       else
-    #         # name: FILLED, age: FILLED, campus: FILLED
-    #         @results << student if match_name && match_age && match_campus
-    #       end
-    #     end
-    #   end
-    # end
+    @search.each do |student|
+      match_name = (student['name'].downcase.start_with?(name.downcase))
+      match_age = (age.to_i == student['age'])
+      match_campus = (campus.downcase == student['campus'].downcase)
+
+      if name.empty?
+        if age.empty?
+          if !campus.empty?
+            # name: EMPTY, age: EMPTY, campus: FILLED
+            @results << student if match_campus
+          end
+        else
+          if campus.empty?
+            # name: EMPTY, age: FILLED, campus: EMPTY
+            @results << student if match_age
+          else
+            # name: EMPTY, age: FILLED, campus: FILLED
+            @results << student if match_age && match_campus
+          end
+        end
+      else
+        if age.empty?
+          if campus.empty?
+            # name: FILLED, age: EMPTY, campus: EMPTY
+            @results << student if match_name
+          else
+            # name: FILLED, age: EMPTY, campus: FILLED
+            @results << student if match_name && match_campus
+          end
+        else
+          if campus.empty?
+            # name: FILLED, age: FILLED, campus: EMPTY
+            @results << student if match_name && match_age
+          else
+            # name: FILLED, age: FILLED, campus: FILLED
+            @results << student if match_name && match_age && match_campus
+          end
+        end
+      end
+    end
   	erb :printlookup
   end
 end
