@@ -5,16 +5,13 @@
 </head>
 <body>
 <h1><strong>Look Up Results</strong></h1>
-	<p>Search results by name:</p>
+	<p>Click <a href="searchfor">here</a> to do a new search.</p>
+	<p>Search results:</p>
 	<ul>
-		 <% @search_name.each do |student| %>
-      <li><%= student['name'] %>, <%= student['name'] %>, <%= student['campus'] %></li>
+		 <% @results.each do |student| %>
+      <li><%= student['name'] %>, <%= student['age'] %>, <%= student['campus'] %></li>
     <% end %>
 	</ul>
-
-	<p>Search results by age:</p>
-
-	<p>Search results by campus:</p>
 
 </body>
 </html>

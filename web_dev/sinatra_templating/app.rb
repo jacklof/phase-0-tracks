@@ -20,18 +20,58 @@ get '/students/new' do
 end
 
 post '/students/search' do
-	@search = db.execute("SELECT * FROM students")
-  @search_name = []
-  @search_age = []
-  @search_campus = []
+  name = params['name']
+  age = params['age']
+  campus = params['campus']
+  if name.empty? && age.empty? && campus.empty?
+    redirect '/students/searchfor'
+  else
+  	@search = db.execute("SELECT * FROM students")
+    @results = []
 
-  @search.each do |student|
-    if student['name'].start_with?(params['name'])
-      @search_name << student
-    end
+    # RUBY DATA MANIPULATION
+    # @search.each do |student|
+    #   match_name = (student['name'].downcase.start_with?(name.downcase))
+    #   match_age = (age.to_i == student['age'])
+    #   match_campus = (campus.downcase == student['campus'].downcase)
+    #
+    #   if name.empty?
+    #     if age.empty?
+    #       if !campus.empty?
+    #         # name: EMPTY, age: EMPTY, campus: FILLED
+    #         @results << student if match_campus
+    #       end
+    #     else
+    #       if campus.empty?
+    #         # name: EMPTY, age: FILLED, campus: EMPTY
+    #         @results << student if match_age
+    #       else
+    #         # name: EMPTY, age: FILLED, campus: FILLED
+    #         @results << student if match_age && match_campus
+    #       end
+    #     end
+    #   else
+    #     if age.empty?
+    #       if campus.empty?
+    #         # name: FILLED, age: EMPTY, campus: EMPTY
+    #         @results << student if match_name
+    #       else
+    #         # name: FILLED, age: EMPTY, campus: FILLED
+    #         @results << student if match_name && match_campus
+    #       end
+    #     else
+    #       if campus.empty?
+    #         # name: FILLED, age: FILLED, campus: EMPTY
+    #         @results << student if match_name && match_age
+    #       else
+    #         # name: FILLED, age: FILLED, campus: FILLED
+    #         @results << student if match_name && match_age && match_campus
+    #       end
+    #     end
+    #   end
+    # end
+  	erb :printlookup
   end
-
-	erb :printlookup
 end
 
 get '/students/searchfor' do
