@@ -5,6 +5,28 @@ require 'sqlite3'
 db = SQLite3::Database.new("students.db")
 db.results_as_hash = true
 
+# A /contact route that displays an address (you can make up the address).
+get '/contact' do
+  "1234 Some Street, Somewhere 98765"
+end
+
+# A /great_job route that can take a person's name as a query parameter (not a route parameter) and say "Good job, [person's name]!". If the query parameter is not present, the route simply says "Good job!"
+get '/great_job' do
+  name = params[:name]
+  if name
+    "Good job, #{name}!"
+  else
+    "Good job!"
+  end
+end
+
+# A route that uses route parameters to add two numbers and respond with the result. The data types are tricky here -- when will the data need to be (or arrive as) a string?
+get '/add/:no1/plus/:no2' do
+  no1 = params[:no1]
+  no2 = params[:no2]
+  (no1.to_i + no2.to_i).to_s
+end
+
 # write a basic GET route
 # add a query parameter
 # GET /
